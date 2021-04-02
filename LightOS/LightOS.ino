@@ -1,5 +1,5 @@
 #include <FastLED.h>
-#define NUM_LEDS 20
+#define NUM_LEDS 48
 #define DATA_PIN 3
 #define DATA_PIN2 4
 int color;
@@ -7,28 +7,39 @@ int randomNum;
 CRGB leds[NUM_LEDS];
 
 void setup() {
-  FastLED.addLeds<NEOPIXEL, DATA_PIN>(leds, NUM_LEDS);
-  FastLED.addLeds<NEOPIXEL, DATA_PIN2>(leds, NUM_LEDS);
-  FastLED.setBrightness(50);
+  
 }
 
 void loop() {
-
   for(int dot = 0; dot < NUM_LEDS; dot++) { 
-    randomSeed(analogRead(A0));
-    randomNum = random(16);
-    if(randomNum == 3){
+    randomNum = random(9);
+    if(randomNum == 1){
       leds[dot] = CRGB::Maroon;
+      FastLED.setBrightness(100);
       FastLED.show();
       delay(10);
     }
-    else if(randomNum == 2){
-      leds[dot] = CRGB::DarkOrange;
-      FastLED.show();
-      delay(10);
-    }
-    else if(randomNum == 1 or randomNum == 4 or randomNum == 5 or randomNum == 6){
+    else if(randomNum == 2 or randomNum == 3){
       leds[dot] = CRGB::OrangeRed;
+      FastLED.setBrightness(100);
+      FastLED.show();
+      delay(10);
+    }
+    else if(randomNum == 4){
+      leds[dot] = CRGB::OrangeRed;
+      FastLED.setBrightness(85);
+      FastLED.show();
+      delay(10);
+    }
+    else if(randomNum == 5){
+      leds[dot] = CRGB::OrangeRed;
+      FastLED.setBrightness(80);
+      FastLED.show();
+      delay(10);
+    }
+    else if(randomNum == 6){
+      leds[dot] = CRGB::OrangeRed;
+      FastLED.setBrightness(70);
       FastLED.show();
       delay(10);
     }
